@@ -1,4 +1,7 @@
+import Link from 'next/link'
+
 export interface CareerEntryProps {
+  slug?: string
   title: string
   period: string
   items: string[]
@@ -23,10 +26,25 @@ function CalendarIcon() {
   )
 }
 
-export function CareerEntry({ title, period, items }: CareerEntryProps) {
+export function CareerEntry({ slug, title, period, items }: CareerEntryProps) {
+  const titleNode = (
+    <span className="text-black font-bold text-base md:text-lg mb-1 block">
+      {title}
+    </span>
+  )
+
   return (
     <div className="border-b border-gray-200 last:border-b-0 pb-6 last:pb-0">
-      <h3 className="text-black font-bold text-base md:text-lg mb-1">{title}</h3>
+      {slug ? (
+        <Link
+          href={`/career/${slug}`}
+          className="hover:opacity-70 transition-opacity focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 rounded"
+        >
+          {titleNode}
+        </Link>
+      ) : (
+        titleNode
+      )}
       <div className="flex items-center gap-2 text-sm text-black/80 mb-3">
         <CalendarIcon />
         <span>{period}</span>

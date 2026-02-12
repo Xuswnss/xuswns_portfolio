@@ -1,4 +1,4 @@
-import { CareerSummary } from './CareerSummary'
+import { CareerSummary } from '@/components/Career/CareerSummary'
 
 export function About() {
   return (
@@ -6,11 +6,12 @@ export function About() {
       id="about"
       className="min-h-screen flex flex-col px-8 py-16 md:px-10 md:py-24 scroll-mt-6"
     >
-      <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold text-black tracking-tight mb-10 md:mb-12">
-        ABOUT
-      </h2>
+      <div className="max-w-5xl mx-auto w-full">
+        <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold text-black tracking-tight mb-10 md:mb-12">
+          ABOUT
+        </h2>
 
-      <div className="flex flex-col md:flex-row md:gap-16 lg:gap-24 max-w-5xl">
+        <div className="flex flex-col md:flex-row md:gap-16 lg:gap-24">
         {/* 왼쪽: 자기소개 */}
         <div className="flex-1 space-y-4 text-black leading-relaxed">
           <p>
@@ -66,9 +67,10 @@ export function About() {
             </a>
           </li>
         </ul>
-      </div>
+        </div>
 
-      <CareerSummary />
+        <CareerSummary />
+      </div>
     </section>
   )
 }
